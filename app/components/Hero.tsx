@@ -1,12 +1,22 @@
 export default function Hero() {
   return (
-    <section className="w-screen h-screen flex flex-col items-center justify-center bg-[#131313]">
-      <h1 className="text-4xl font-semibold">STEFAN BESONEN</h1>
+    <section className="w-full h-screen flex items-center justify-center bg-[#131313]">
 
-      <div className="w-full px-12 mt-10 flex flex-col gap-3 justify-center">
-         <p className="font-medium">Full stack developer</p>
-         <p className="text-[#C6C6C6] w-7/8">I build clean, minimal, user-focused web applications.</p>
-      </div>
+        <div>
+
+          <h1 className="font-semibold text-4xl md:text-6xl lg:text-7xl">
+            STEFAN BESONEN
+          </h1>
+
+          <div className="mt-10 flex flex-col gap-3 text-sm md:text-base lg:text-lg">
+            <p className="font-medium">Full stack developer</p>
+            <p className="text-[#C6C6C6]">
+              I build clean, minimal, user-focused web applications.
+            </p>
+          </div>
+
+        </div>
+
     </section>
   )
 }
