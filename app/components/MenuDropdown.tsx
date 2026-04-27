@@ -1,12 +1,15 @@
 "use client";
 
+import type { NavItem } from "./Navbar";
+
 type MenuDropdownProps = {
   menuOpen: boolean;
   toggleMenuOpen: () => void;
   activeSection: string;
+  navItems: NavItem[];
 };
 
-export default function MenuDropdown({ menuOpen, toggleMenuOpen, activeSection }: MenuDropdownProps) {
+export default function MenuDropdown({ menuOpen, toggleMenuOpen, activeSection, navItems }: MenuDropdownProps) {
    return (
     <div
       className={`
@@ -17,32 +20,14 @@ export default function MenuDropdown({ menuOpen, toggleMenuOpen, activeSection }
     >
 
       <ul className="w-full h-full flex flex-col gap-6 px-6 py-8 text-lg justify-center items-center">
-        
-        <li onClick={toggleMenuOpen}>
-          <a href="#hero" className={`${activeSection === 'hero' ? 'text-white' : 'text-gray-400'}`}>
-            Hero
-          </a>
-        </li>
-
-        <li onClick={toggleMenuOpen}>
-          <a href="#projects" className={`${activeSection === 'projects' ? 'text-white' : 'text-gray-400'}`}>
-            Project 01
-          </a>
-        </li>
-
-        <li onClick={toggleMenuOpen}>
-          <a href="#about" className={`${activeSection === 'about' ? 'text-white' : 'text-gray-400'}`}>
-            About me
-          </a>
-        </li>
-
-        <li onClick={toggleMenuOpen}>
-          <a href="#contact" className={`${activeSection === 'contact' ? 'text-white' : 'text-gray-400'}`}>
-            Contact
-          </a>
-        </li>
-        
-      </ul>
+            {navItems.map(navItem => (
+               <li onClick={toggleMenuOpen} key={navItem.id}>
+                  <a href={`#${navItem.id}`} className={`${activeSection === navItem.id ? 'text-white' : 'text-gray-400'}`}>
+                     {navItem.label}
+                  </a>
+               </li>
+            ))}
+         </ul>
     </div>
   );
 }

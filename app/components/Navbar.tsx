@@ -7,6 +7,11 @@ import MenuDropdown from "./MenuDropdown";
 import { X } from "lucide-react";
 import { useActiveSection } from "../hooks/useActiveSection";
 
+export type NavItem = {
+   id: string;
+   label: string;
+}
+
 export default function Navbar({}) {
    const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,6 +24,13 @@ export default function Navbar({}) {
    }, [menuOpen]);
 
    const activeSection = useActiveSection();
+
+   const navItems = [
+      { id: 'hero', label: 'Hero' },
+      { id: 'projects', label: 'Project 1' },
+      { id: 'about', label: 'About me' },
+      { id: 'contact', label: 'Contact' },
+   ]
   
    return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#131313]">
@@ -48,26 +60,13 @@ export default function Navbar({}) {
 
          {/* DESKTOP NAV */}
          <ul className="hidden md:flex gap-8 text-sm">
-            <li>
-               <a href="#hero" className={`${activeSection === 'hero' ? 'text-white' : 'text-gray-400'}`}>
-                  Hero
-               </a>
-            </li>
-            <li>
-               <a href="#projects" className={`${activeSection === 'projects' ? 'text-white' : 'text-gray-400'}`}>
-               Project 01
-               </a>
-            </li>
-            <li>
-               <a href="#about" className={`${activeSection === 'about' ? 'text-white' : 'text-gray-400'}`}>
-               About me
-               </a>
-            </li>
-            <li>
-               <a href="#contact" className={`${activeSection === 'contact' ? 'text-white' : 'text-gray-400'}`}>
-               Contact
-               </a>
-            </li>
+            {navItems.map(navItem => (
+               <li key={navItem.id}>
+                  <a href={`#${navItem.id}`} className={`${activeSection === navItem.id ? 'text-white' : 'text-gray-400'}`}>
+                     {navItem.label}
+                  </a>
+               </li>
+            ))}
          </ul>
 
          {/* MENU DROPDOWN */}
@@ -76,6 +75,7 @@ export default function Navbar({}) {
                menuOpen={menuOpen} 
                toggleMenuOpen={toggleMenuOpen} 
                activeSection={activeSection}
+               navItems={navItems}
             />
          )}
       
