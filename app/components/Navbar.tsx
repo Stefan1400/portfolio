@@ -1,9 +1,26 @@
+'use client';
+
 import Logo from "./icons/Logo";
 import Hamburger from "./icons/Hamburger";
+import { useState, useEffect } from "react";
+import MenuDropdown from "./MenuDropdown";
+import { X } from "lucide-react";
+
+
 
 export default function Navbar() {
-  return (
-    <nav className="fixed top-0 left-0 w-full z-50">
+   const [menuOpen, setMenuOpen] = useState(false);
+
+   function toggleMenuOpen() {
+      setMenuOpen(prev => !prev);
+   };
+
+   useEffect(() => {
+      document.body.style.overflow = menuOpen ? "hidden" : "auto";
+   }, [menuOpen]);
+  
+   return (
+    <nav className="relative top-0 left-0 w-full z-50 bg-[#131313]">
       <div className="max-w-8xl mx-auto px-5 md:px-10 py-6 flex items-center justify-between">
 
          {/* MOBILE LOGO */}
@@ -12,9 +29,15 @@ export default function Navbar() {
          </a>
 
          {/* MOBILE HAMBURGER */}
-         <button type="button" className="flex md:hidden">
-            <Hamburger />
-         </button>
+         {!menuOpen ? (
+            <button onClick={toggleMenuOpen} type="button" className="flex md:hidden">
+               <Hamburger />
+            </button>
+         ) : (
+            <button onClick={toggleMenuOpen} className="fixed top-6 right-4">
+               <X size={33} strokeWidth={1} />
+            </button>
+         )}
 
 
          {/* DESKTOP LOGO */}
@@ -45,6 +68,10 @@ export default function Navbar() {
          </ul>
       
       </div>
+
+      {menuOpen && (
+         <MenuDropdown menuOpen={menuOpen} toggleMenuOpen={toggleMenuOpen} />
+      )}
     </nav>
   )
 }
