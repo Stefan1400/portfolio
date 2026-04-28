@@ -41,17 +41,10 @@ export default function Navbar({}) {
             <Logo />
          </a>
 
-         {/* MOBILE HAMBURGER / X */}
-         {!menuOpen ? (
-            <button onClick={toggleMenuOpen} type="button" className="flex md:hidden">
-               <Hamburger />
-            </button>
-         ) : (
-            <button onClick={toggleMenuOpen} className="fixed top-6 right-4">
-               <X size={33} strokeWidth={1} />
-            </button>
-         )}
-
+         {/* MOBILE MENU CLOSE / OPEN */}
+         <button onClick={toggleMenuOpen} type="button" className="flex md:hidden">
+            {menuOpen ? <X size={33} strokeWidth={1} /> : <Hamburger />}
+         </button>
 
          {/* DESKTOP LOGO */}
          <a href="#hero" className="hidden md:flex text-white font-medium">
