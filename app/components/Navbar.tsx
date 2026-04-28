@@ -37,7 +37,7 @@ export default function Navbar({}) {
       <div className="relative max-w-8xl mx-auto px-5 md:px-10 py-6 flex items-center justify-between">
 
          {/* MOBILE LOGO */}
-         <a onClick={toggleMenuOpen} href="#hero" className="flex md:hidden">
+         <a onClick={() => setMenuOpen(false)} href="#hero" className="flex md:hidden">
             <Logo />
          </a>
 
