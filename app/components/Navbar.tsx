@@ -64,7 +64,7 @@ export default function Navbar({}) {
                   ${menuOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-75"}
                `}
             >
-               <X size={33} strokeWidth={1} />
+               <X size={33} strokeWidth={1} color="white" />
             </span>
          </button>
 
