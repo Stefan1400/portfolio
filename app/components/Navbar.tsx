@@ -33,7 +33,7 @@ export default function Navbar({}) {
    ]
   
    return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#131313]">
+    <nav className={`${!menuOpen ? 'bg-[#131313]/80 backdrop-blur-md' : 'bg-[#131313]'} fixed top-0 left-0 w-full z-50`}>
       <div className="relative max-w-8xl mx-auto px-5 md:px-10 py-6 flex items-center justify-between">
 
          {/* MOBILE LOGO */}
