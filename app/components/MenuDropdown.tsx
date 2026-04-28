@@ -13,16 +13,16 @@ export default function MenuDropdown({ menuOpen, toggleMenuOpen, activeSection, 
    return (
     <div
       className={`
-        flex md:hidden absolute top-full left-0 w-full h-[calc(100vh-72px)]  backdrop-blur-md bg-[#131313]
-        transition-all duration-300 ease-in-out
-        ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}
+        flex md:hidden absolute top-full left-0 w-full h-[calc(100vh-72px)] bg-[#131313]
+        transition-all duration-300 ease-initial
+        ${menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
       `}
     >
 
       <ul className="w-full h-full flex flex-col gap-6 px-6 py-8 text-lg justify-center items-center">
           {navItems.map(navItem => (
               <li onClick={toggleMenuOpen} key={navItem.id}>
-                <a href={`#${navItem.id}`} className={`${activeSection === navItem.id ? 'text-white' : 'text-gray-400'}`}>
+                <a href={`#${navItem.id}`} className={`transition-colors duration-150 ease-in-out ${activeSection === navItem.id ? 'text-white' : 'text-gray-400'}`}>
                     {navItem.label}
                 </a>
               </li>

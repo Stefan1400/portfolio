@@ -42,8 +42,30 @@ export default function Navbar({}) {
          </a>
 
          {/* MOBILE MENU CLOSE / OPEN */}
-         <button onClick={toggleMenuOpen} type="button" className="flex md:hidden">
-            {menuOpen ? <X size={33} strokeWidth={1} /> : <Hamburger />}
+         <button
+            onClick={toggleMenuOpen}
+            type="button"
+            className="relative flex md:hidden w-8 h-8 items-center justify-center"
+            >
+            {/* Hamburger */}
+            <span
+               className={`
+                  absolute transition-all duration-300 ease-in-out
+                  ${menuOpen ? "opacity-0 rotate-90 scale-75" : "opacity-100 rotate-0 scale-100"}
+               `}
+            >
+               <Hamburger />
+            </span>
+
+            {/* X icon */}
+            <span
+               className={`
+                  absolute transition-all duration-300 ease-in-out
+                  ${menuOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-75"}
+               `}
+            >
+               <X size={33} strokeWidth={1} />
+            </span>
          </button>
 
          {/* DESKTOP LOGO */}
@@ -55,7 +77,7 @@ export default function Navbar({}) {
          <ul className="hidden md:flex gap-8 text-sm">
             {navItems.map(navItem => (
                <li key={navItem.id}>
-                  <a href={`#${navItem.id}`} className={`${activeSection === navItem.id ? 'text-white' : 'text-gray-400'}`}>
+                  <a href={`#${navItem.id}`} className={`transition-colors duration-150 ease-in-out lg:px-3 lg:py-2 ${activeSection === navItem.id ? 'text-white' : 'text-gray-400'}`}>
                      {navItem.label}
                   </a>
                </li>
@@ -63,15 +85,13 @@ export default function Navbar({}) {
          </ul>
 
          {/* MENU DROPDOWN */}
-         {menuOpen && (
-            <MenuDropdown 
-               menuOpen={menuOpen} 
-               toggleMenuOpen={toggleMenuOpen} 
-               activeSection={activeSection}
-               navItems={navItems}
-            />
-         )}
-      
+
+         <MenuDropdown 
+            menuOpen={menuOpen} 
+            toggleMenuOpen={toggleMenuOpen} 
+            activeSection={activeSection}
+            navItems={navItems}
+         />
       </div>
     </nav>
   )
