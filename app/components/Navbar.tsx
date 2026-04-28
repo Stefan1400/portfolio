@@ -77,7 +77,7 @@ export default function Navbar({}) {
          <ul className="hidden md:flex gap-8 text-sm">
             {navItems.map(navItem => (
                <li key={navItem.id}>
-                  <a href={`#${navItem.id}`} className={`transition-colors duration-150 ease-in-out lg:px-3 lg:py-2 ${activeSection === navItem.id ? 'text-white' : 'text-gray-400'}`}>
+                  <a href={`#${navItem.id}`} className={`transition-colors duration-150 ease-in-out lg:px-3 lg:py-2 ${activeSection === navItem.id ? 'text-white' : 'text-gray-400 hover:text-gray-200'}`}>
                      {navItem.label}
                   </a>
                </li>
