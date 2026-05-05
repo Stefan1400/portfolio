@@ -5,7 +5,7 @@ export default function ProjectCard({ imageUrl }: ProjectTypes) {
   return (
     <div className="flex flex-col items-center gap-3 hover:cursor-pointer p-15">
          <Image
-            className="rounded-[5px] md:w-[400px] lg:w-[500px]"
+            className="rounded-[5px] md:w-100 lg:w-125"
             src={imageUrl}
             alt="ATO project preview"
             width={300}
