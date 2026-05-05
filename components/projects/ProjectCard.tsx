@@ -5,14 +5,14 @@ export default function ProjectCard({ imageUrl }: ProjectTypes) {
   return (
     <div className="flex flex-col items-center gap-3 hover:cursor-pointer p-15">
          <Image
-            className="rounded-[5px]"
+            className="rounded-[5px] md:w-[400px] lg:w-[500px]"
             src={imageUrl}
             alt="ATO project preview"
             width={300}
             height={300}
          />
 
-         <h2 className="text-7xl font-bold">ato</h2>
+         <h2 className="text-5xl font-bold md:text-6xl lg:text-7xl">ato</h2>
       </div>
   )
 }
