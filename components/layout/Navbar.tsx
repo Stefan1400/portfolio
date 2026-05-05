@@ -1,11 +1,11 @@
 'use client';
 
-import Logo from "./icons/Logo";
-import Hamburger from "./icons/Hamburger";
+import Logo from "../icons/Logo";
+import Hamburger from "../icons/Hamburger";
 import { useState, useEffect } from "react";
 import MenuDropdown from "./MenuDropdown";
 import { X } from "lucide-react";
-import { useActiveSection } from "../hooks/useActiveSection";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 export type NavItem = {
    id: string;
