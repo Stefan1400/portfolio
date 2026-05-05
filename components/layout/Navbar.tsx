@@ -27,7 +27,7 @@ export default function Navbar({}) {
 
    const navItems = [
       { id: 'hero', label: 'Hero' },
-      { id: 'projects', label: 'Project 1' },
+      { id: 'projects', label: 'Projects' },
       { id: 'about', label: 'About me' },
       { id: 'contact', label: 'Contact' },
    ]
