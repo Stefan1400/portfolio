@@ -1,17 +1,14 @@
 import Navbar from "@/components/layout/Navbar";
 import Image from "next/image";
-import { ArrowBigUp } from "lucide-react"; 
 import { ArrowUpRightFromSquare } from "lucide-react";
+import ProjectHero from "@/components/projects/shared/ProjectHero";
 
 export default function AtoPage() {
   return (
     <div className="w-full h-auto bg-[#131313] pb-30">
       <Navbar />
 
-      <section className="w-full h-screen flex flex-col items-center justify-center">
-         <h3 className="text-md font-light text-[#717171] md:text-lg">PROJECT 1</h3>
-         <h1 className="text-9xl font-bold text-white">ato</h1>
-      </section>
+      <ProjectHero projectNumber='1' projectName='ato' />
 
       <section className="w-full h-100 flex flex-col items-center justify-start">
         <h4 className="text-center font-semibold text-white px-[15%] text-[clamp(1.5rem,5vw,6rem)]">
