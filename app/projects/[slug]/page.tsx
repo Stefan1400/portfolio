@@ -2,19 +2,21 @@ import Navbar from "@/components/layout/Navbar";
 import Image from "next/image";
 import { ArrowUpRightFromSquare } from "lucide-react";
 import ProjectHero from "@/components/projects/shared/ProjectHero";
+import ProjectDescription from "@/components/projects/shared/ProjectDescription";
 
 export default function AtoPage() {
   return (
     <div className="w-full h-auto bg-[#131313] pb-30">
       <Navbar />
 
-      <ProjectHero projectNumber='1' projectName='ato' />
+      <ProjectHero 
+        projectNumber='1' 
+        projectName='ato' 
+      />
 
-      <section className="w-full h-100 flex flex-col items-center justify-start">
-        <h4 className="text-center font-semibold text-white px-[15%] text-[clamp(1.5rem,5vw,6rem)]">
-          Track real study behavior. Turn it into actionable insights.
-        </h4>
-      </section>
+      <ProjectDescription 
+        projectDescription="Track real study behavior. Turn it into actionable insights."
+      />
 
       <div className="flex flex-col items-center px-6 sm:px-8 lg:px-12">
 
