@@ -5,7 +5,6 @@ import Hamburger from "../icons/Hamburger";
 import { useState, useEffect } from "react";
 import MenuDropdown from "./MenuDropdown";
 import { X } from "lucide-react";
-import { useActiveSection } from "@/hooks/useActiveSection";
 
 export type NavItem = {
    id: string;
@@ -23,8 +22,6 @@ export default function Navbar({}) {
       document.body.style.overflow = menuOpen ? "hidden" : "auto";
    }, [menuOpen]);
 
-   const activeSection = useActiveSection();
-
    const navItems = [
       { id: 'hero', label: 'Hero' },
       { id: 'projects', label: 'Projects' },
@@ -41,11 +38,18 @@ export default function Navbar({}) {
             <Logo />
          </a>
 
+         
+
+         {/* DESKTOP LOGO */}
+         <a href="/#hero" className="hidden md:flex text-white font-medium">
+            Stefan Besonen
+         </a>
+
          {/* MOBILE MENU CLOSE / OPEN */}
          <button
             onClick={toggleMenuOpen}
             type="button"
-            className="relative flex md:hidden w-8 h-8 items-center justify-center"
+            className="md:hidden relative flex w-8 h-8 items-center justify-center"
             >
             {/* Hamburger */}
             <span
@@ -68,16 +72,11 @@ export default function Navbar({}) {
             </span>
          </button>
 
-         {/* DESKTOP LOGO */}
-         <a href="/#hero" className="hidden md:flex text-white font-medium">
-            Stefan Besonen
-         </a>
-
          {/* DESKTOP NAV */}
          <ul className="hidden md:flex gap-8 text-sm">
             {navItems.map(navItem => (
                <li key={navItem.id}>
-                  <a href={`/#${navItem.id}`} className={`transition-colors duration-150 ease-in-out lg:px-3 lg:py-2 ${activeSection === navItem.id ? 'text-white' : 'text-gray-400 hover:text-gray-200'}`}>
+                  <a href={`/#${navItem.id}`} className={`text-gray-400`}>
                      {navItem.label}
                   </a>
                </li>
@@ -89,7 +88,6 @@ export default function Navbar({}) {
          <MenuDropdown 
             menuOpen={menuOpen} 
             toggleMenuOpen={toggleMenuOpen} 
-            activeSection={activeSection}
             navItems={navItems}
          />
       </div>

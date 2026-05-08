@@ -5,11 +5,10 @@ import type { NavItem } from "./Navbar";
 type MenuDropdownProps = {
   menuOpen: boolean;
   toggleMenuOpen: () => void;
-  activeSection: string;
   navItems: NavItem[];
 };
 
-export default function MenuDropdown({ menuOpen, toggleMenuOpen, activeSection, navItems }: MenuDropdownProps) {
+export default function MenuDropdown({ menuOpen, toggleMenuOpen, navItems }: MenuDropdownProps) {
    return (
     <div
       className={`
@@ -21,8 +20,8 @@ export default function MenuDropdown({ menuOpen, toggleMenuOpen, activeSection, 
 
       <ul className="w-full h-full flex flex-col gap-6 px-6 py-8 pt-0 text-lg justify-center items-center">
           {navItems.map(navItem => (
-              <li onClick={toggleMenuOpen} key={navItem.id}>
-                <a href={`/#${navItem.id}`} className={`transition-colors duration-150 ease-in-out ${activeSection === navItem.id ? 'text-white' : 'text-gray-400'}`}>
+              <li onClick={() => toggleMenuOpen()} key={navItem.id}>
+                <a href={`/#${navItem.id}`} className={`transition-colors duration-150 ease-in-out`}>
                     {navItem.label}
                 </a>
               </li>
