@@ -37,7 +37,7 @@ export default function Navbar({}) {
       <div className="relative max-w-8xl mx-auto px-5 md:px-10 py-6 flex items-center justify-between">
 
          {/* MOBILE LOGO */}
-         <a onClick={() => setMenuOpen(false)} href="#hero" className="flex md:hidden">
+         <a onClick={() => setMenuOpen(false)} href="/#hero" className="flex md:hidden">
             <Logo />
          </a>
 
@@ -69,7 +69,7 @@ export default function Navbar({}) {
          </button>
 
          {/* DESKTOP LOGO */}
-         <a href="#hero" className="hidden md:flex text-white font-medium">
+         <a href="/#hero" className="hidden md:flex text-white font-medium">
             Stefan Besonen
          </a>
 
@@ -77,7 +77,7 @@ export default function Navbar({}) {
          <ul className="hidden md:flex gap-8 text-sm">
             {navItems.map(navItem => (
                <li key={navItem.id}>
-                  <a href={`#${navItem.id}`} className={`transition-colors duration-150 ease-in-out lg:px-3 lg:py-2 ${activeSection === navItem.id ? 'text-white' : 'text-gray-400 hover:text-gray-200'}`}>
+                  <a href={`/#${navItem.id}`} className={`transition-colors duration-150 ease-in-out lg:px-3 lg:py-2 ${activeSection === navItem.id ? 'text-white' : 'text-gray-400 hover:text-gray-200'}`}>
                      {navItem.label}
                   </a>
                </li>
