@@ -28,7 +28,7 @@ export default function About() {
 
             <div className="flex flex-wrap gap-5 mt-16">
 
-            <Link className="group flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-4 text-black transition-all duration-200 hover:scale-[1.02] hover:bg-zinc-200 hover:cursor-pointer active:scale-[0.99]" href='/#contact'>
+            <a href='/#contact' className="group flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-4 text-black transition-all duration-200 hover:scale-[1.02] hover:bg-zinc-200 hover:cursor-pointer active:scale-[0.99]">
                <span className="text-sm font-semibold tracking-wide pointer-events-none select-none">
                   Contact Me
                </span>
@@ -38,7 +38,7 @@ export default function About() {
                   strokeWidth={2.5}
                   className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                />
-            </Link>
+            </a>
 
 
                <a 

@@ -9,8 +9,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ProjectsGrid />
-      
-      {/* <section id="about" className="w-full h-screen flex items-center justify-center text-gray-400 bg-[#131313]">about</section> */}
       <About />
       <section id="contact" className="w-full h-screen flex items-center justify-center text-gray-400 bg-[#131313]">contact</section>
     </div>
