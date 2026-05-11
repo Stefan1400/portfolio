@@ -2,7 +2,6 @@ import Navbar from "@/components/layout/Navbar";
 import ProjectHero from "@/components/projects/shared/ProjectHero";
 import ProjectDescription from "@/components/projects/shared/ProjectDescription";
 import ProjectShowcase from "@/components/projects/shared/ProjectShowcase";
-import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
 
 export default function AtoPage() {
@@ -25,7 +24,6 @@ export default function AtoPage() {
         toolsUsed='React, Tailwind CSS, TypeScript, Express, PostgreSQL' 
       />    
 
-      {/* <About /> */}
       <Contact />
     </div>
   )

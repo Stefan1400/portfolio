@@ -11,16 +11,15 @@ export default function ProjectShowcase({ imageSrc, imageAlt, toolsUsed }: Proje
   return (
     <div className="flex flex-col items-center px-6 sm:px-8 lg:px-12">
 
-
-      <div className="w-full max-w-6xl">
-        <Image
-          className="w-full rounded-xl border border-white/10 shadow-2xl object-cover"
-          src={imageSrc}
-          alt={imageAlt}
-          width={1500}
-          height={900}
-          priority
-        />
+      <div className="w-full max-w-6xl flex items-center justify-center flex-col">
+          <Image
+            className="w-full rounded-xl border border-white/10 shadow-2xl object-cover lg:w-[50vw] "
+            src={imageSrc}
+            alt={imageAlt}
+            width={1500}
+            height={900}
+            priority
+          />
 
         <p className="mt-3 text-right text-xs sm:text-sm text-zinc-400 tracking-wide">
           Fully responsive across all screen sizes
