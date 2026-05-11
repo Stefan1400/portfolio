@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react";
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 
 export default function About() {
   return (
@@ -26,26 +27,35 @@ export default function About() {
                on simplicity, performance, and usability.
             </p>
 
-            <div className="flex flex-wrap gap-5 mt-16">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-15">
 
-            <a href='/#contact' className="group flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-4 text-black transition-all duration-200 hover:scale-[1.02] hover:bg-zinc-200 hover:cursor-pointer active:scale-[0.99]">
-               <span className="text-sm font-semibold tracking-wide pointer-events-none select-none">
-                  Contact Me
-               </span>
+               <a href="/#contact" className="group flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-4 text-black transition-all duration-200 hover:scale-[1.02] hover:bg-zinc-200 hover:cursor-pointer active:scale-[0.99]">
 
-               <Mail
+                  <span className="text-sm font-semibold tracking-wide">
+                  Get in touch
+                  </span>
+
+                  <Mail
                   size={18}
                   strokeWidth={2.5}
                   className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-               />
-            </a>
+                  />
 
+               </a>
 
                <a 
-                  href="https://github.com/Stefan1400/portfolio" 
+                  href="https://github.com/Stefan1400" 
                   target="_blank" 
-                  className="flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-transparent px-6 py-4 text-white transition-all duration-200 hover:border-white/40 hover:bg-white/10 hover:cursor-pointer active:scale-[0.99]">
-                  See on GitHub
+                  className=" group flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-transparent px-6 py-4 text-white transition-all duration-200 hover:border-white/40 hover:bg-white/10 hover:cursor-pointer active:scale-[0.99] text-sm font-semibold tracking-wide">
+                  
+                  <span className="text-sm font-semibold tracking-wide">
+                  View GitHub
+                  </span>
+
+                  <FaGithub 
+                  size={18} 
+                  className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
                </a>
 
             </div>
