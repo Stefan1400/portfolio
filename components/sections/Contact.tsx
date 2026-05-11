@@ -4,7 +4,7 @@ import { Copy, CheckIcon } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 
-export default function ContactSection() {
+export default function Contact() {
   const email = "stefan.besonen783@gmail.com";
 
   const [copied, setCopied] = useState(false);
