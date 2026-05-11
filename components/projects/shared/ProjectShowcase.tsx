@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRightFromSquare } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 type ProjectShowcaseTypes = {
    imageSrc: string;
@@ -26,7 +27,7 @@ export default function ProjectShowcase({ imageSrc, imageAlt, toolsUsed }: Proje
         </p>
       </div>
 
-      <div className="mt-10 flex w-full max-w-6xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <div className="mt-10 flex w-full max-w-6xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:mt-25">
 
         <div className="flex flex-col gap-2">
 
@@ -56,13 +57,20 @@ export default function ProjectShowcase({ imageSrc, imageAlt, toolsUsed }: Proje
 
           </button>
 
-          <button className="flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-transparent px-6 py-4 text-white transition-all duration-200 hover:border-white/40 hover:bg-white/10 hover:cursor-pointer active:scale-[0.99]">
-
+          <a 
+            href="https://github.com/Stefan1400/ato" 
+            target="_blank" 
+            className=" group flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-transparent px-6 py-4 text-white transition-all duration-200 hover:border-white/40 hover:bg-white/10 hover:cursor-pointer active:scale-[0.99] text-sm font-semibold tracking-wide">
+            
             <span className="text-sm font-semibold tracking-wide">
               See on GitHub
             </span>
 
-          </button>
+            <FaGithub 
+              size={18} 
+              className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </a>
 
         </div>
 
