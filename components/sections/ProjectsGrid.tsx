@@ -7,7 +7,7 @@ export type ProjectTypes = {
 
 export default function ProjectsGrid() {
   return (
-    <section id="projects" className="w-full h-auto text-[#1b1b1b] bg-[#ededed] py-50">
+    <section id="projects" className="w-full h-auto bg-[#131313] text-[#f5f5f5] py-25">
       
       <h1 className="font-semibold text-4xl md:text-6xl lg:text-7xl text-center">MY PROJECTS</h1>
 
