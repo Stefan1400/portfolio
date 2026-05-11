@@ -9,7 +9,7 @@ type ProjectShowcaseTypes = {
 
 export default function ProjectShowcase({ imageSrc, imageAlt, toolsUsed }: ProjectShowcaseTypes) {
   return (
-    <div className="flex flex-col items-center px-6 sm:px-8 lg:px-12">
+    <section className="flex flex-col items-center px-6 sm:px-8 lg:px-12 lg:mt-50 lg:mb-50">
 
       <div className="w-full max-w-6xl flex items-center justify-center flex-col">
           <Image
@@ -67,6 +67,6 @@ export default function ProjectShowcase({ imageSrc, imageAlt, toolsUsed }: Proje
         </div>
 
       </div>
-      </div>
+      </section>
   )
 }
