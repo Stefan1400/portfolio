@@ -2,9 +2,11 @@
 
 import Logo from "../icons/Logo";
 import Hamburger from "../icons/Hamburger";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
+import Link from "next/link";
 import MenuDropdown from "./MenuDropdown";
 import { X } from "lucide-react";
+import { useLenis } from "../smoothScrolling";
 
 export type NavItem = {
    id: string;
@@ -13,10 +15,37 @@ export type NavItem = {
 
 export default function Navbar({}) {
    const [menuOpen, setMenuOpen] = useState(false);
+   const lenisRef = useLenis();
 
    function toggleMenuOpen() {
       setMenuOpen(prev => !prev);
    };
+
+   function navigateToSection(
+      event: MouseEvent<HTMLAnchorElement>,
+      sectionId: string,
+      closeMenu = false,
+   ) {
+      if (closeMenu) {
+         setMenuOpen(false);
+         document.body.style.overflow = "auto";
+      }
+
+      if (
+         !lenisRef?.current ||
+         event.button !== 0 ||
+         event.metaKey ||
+         event.ctrlKey ||
+         event.shiftKey ||
+         event.altKey
+      ) {
+         return;
+      }
+
+      event.preventDefault();
+      window.history.pushState(null, "", event.currentTarget.href);
+      lenisRef.current.scrollTo(`#${sectionId}`);
+   }
 
    useEffect(() => {
       document.body.style.overflow = menuOpen ? "hidden" : "auto";
@@ -34,16 +63,24 @@ export default function Navbar({}) {
       <div className="relative max-w-8xl mx-auto px-5 md:px-10 py-6 flex items-center justify-between">
 
          {/* MOBILE LOGO */}
-         <a onClick={() => setMenuOpen(false)} href="/#hero" className="flex md:hidden">
+         <Link
+            onClick={event => navigateToSection(event, "hero", true)}
+            href="/#hero"
+            className="flex md:hidden"
+         >
             <Logo />
-         </a>
+         </Link>
 
          
 
          {/* DESKTOP LOGO */}
-         <a href="/#hero" className="hidden md:flex text-white font-medium">
+         <Link
+            onClick={event => navigateToSection(event, "hero")}
+            href="/#hero"
+            className="hidden md:flex text-white font-medium"
+         >
             Stefan Besonen
-         </a>
+         </Link>
 
          {/* MOBILE MENU CLOSE / OPEN */}
          <button
@@ -76,9 +113,13 @@ export default function Navbar({}) {
          <ul className="hidden md:flex gap-8 text-sm">
             {navItems.map(navItem => (
                <li key={navItem.id}>
-                  <a href={`/#${navItem.id}`} className='text-gray-400 hover:text-gray-200 transition-colors duration-150 ease-in-out'>
+                  <Link
+                     href={`/#${navItem.id}`}
+                     onClick={event => navigateToSection(event, navItem.id)}
+                     className='text-gray-400 hover:text-gray-200 transition-colors duration-150 ease-in-out'
+                  >
                      {navItem.label}
-                  </a>
+                  </Link>
                </li>
             ))}
          </ul>
@@ -87,7 +128,9 @@ export default function Navbar({}) {
 
          <MenuDropdown 
             menuOpen={menuOpen} 
-            toggleMenuOpen={toggleMenuOpen} 
+            onNavigate={(event, sectionId) =>
+               navigateToSection(event, sectionId, true)
+            }
             navItems={navItems}
          />
       </div>

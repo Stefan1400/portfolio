@@ -1,8 +1,31 @@
-import { Mail } from "lucide-react";
+'use client';
+
+import type { MouseEvent } from "react";
 import Link from "next/link";
+import { Mail } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import { useLenis } from "../smoothScrolling";
 
 export default function About() {
+  const lenisRef = useLenis();
+
+  function navigateToContact(event: MouseEvent<HTMLAnchorElement>) {
+    if (
+      !lenisRef?.current ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    window.history.pushState(null, "", event.currentTarget.href);
+    lenisRef.current.scrollTo("#contact");
+  }
+
   return (
     <section
       id="about"
@@ -29,19 +52,20 @@ export default function About() {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-15">
 
-               <a href="/#contact" className="group flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-4 text-black transition-all duration-200 hover:scale-[1.02] hover:bg-zinc-200 hover:cursor-pointer active:scale-[0.99]">
-
+               <Link
+                  href="/#contact"
+                  onClick={navigateToContact}
+                  className="group flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-4 text-black transition-all duration-200 hover:scale-[1.02] hover:bg-zinc-200 hover:cursor-pointer active:scale-[0.99]"
+               >
                   <span className="text-sm font-semibold tracking-wide">
-                  Get in touch
+                     Get in touch
                   </span>
-
                   <Mail
-                  size={18}
-                  strokeWidth={2.5}
-                  className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                     size={18}
+                     strokeWidth={2.5}
+                     className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
-
-               </a>
+               </Link>
 
                <a 
                   href="https://github.com/Stefan1400" 
