@@ -9,7 +9,7 @@ export default function Hero() {
           </h1>
 
           <div className="mt-10 flex flex-col gap-3 text-sm md:text-base lg:text-lg">
-            <p className="font-medium text-white">Full stack developer</p>
+            <p className="font-medium text-white">Full-Stack Developer</p>
             <p className="text-[#C6C6C6]">
               I build clean, minimal, user-focused web applications.
             </p>
