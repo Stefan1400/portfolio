@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Mail } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { useLenis } from "../smoothScrolling";
+import Reveal from "../Reveal";
 
 export default function About() {
   const lenisRef = useLenis();
@@ -32,25 +33,30 @@ export default function About() {
       className="relative w-full min-h-screen bg-[#131313] text-[#f5f5f5] overflow-hidden">
       <div
          className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pt-50 md:pt-40 lg:pt-40 pb-40">
-         <h1
-            className="text-white/20 mb-2 text-2xl sm:text-3xl md:text-4xl leading-[1.15] font-semibold tracking-tight pointer-events-none select-none">
-               about me
-         </h1>
+         <Reveal>
+            <h1
+               className="text-white/20 mb-2 text-2xl sm:text-3xl md:text-4xl leading-[1.15] font-semibold tracking-tight pointer-events-none select-none">
+                  about me
+            </h1>
+         </Reveal>
 
          <div className="max-w-3xl">
-            <p className="text-2xl sm:text-3xl md:text-4xl leading-[1.15] font-semibold tracking-tight pointer-events-none select-none">
-               I'm a self-taught full-stack developer building
-               clean, user-focused web applications.
-            </p>
+            <Reveal delay={80}>
+               <p className="text-2xl sm:text-3xl md:text-4xl leading-[1.15] font-semibold tracking-tight pointer-events-none select-none">
+                  I'm a self-taught full-stack developer building
+                  clean, user-focused web applications.
+               </p>
 
-            <p
-            className="mt-16 text-2xl sm:text-3xl md:text-4xl leading-[1.15] font-semibold tracking-tight pointer-events-none select-none">
-               I'm currently developing real-world projects and
-               working toward my first full-time role, focusing
-               on simplicity, performance, and usability.
-            </p>
+               <p
+               className="mt-16 text-2xl sm:text-3xl md:text-4xl leading-[1.15] font-semibold tracking-tight pointer-events-none select-none">
+                  I'm currently developing real-world projects and
+                  working toward my first full-time role, focusing
+                  on simplicity, performance, and usability.
+               </p>
+            </Reveal>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-15">
+            <Reveal delay={160}>
+               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-15">
 
                <Link
                   href="/#contact"
@@ -82,7 +88,8 @@ export default function About() {
                   />
                </a>
 
-            </div>
+               </div>
+            </Reveal>
          </div>
       </div>
 

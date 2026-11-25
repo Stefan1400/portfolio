@@ -24,3 +24,52 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.hero-entrance {
+  animation: hero-entrance 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-entrance--role {
+  animation-delay: 90ms;
+}
+
+.hero-entrance--description {
+  animation-delay: 180ms;
+}
+
+.reveal {
+  transition:
+    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal[data-reveal-ready='true']:not([data-revealed='true']) {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+@keyframes hero-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-entrance {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
